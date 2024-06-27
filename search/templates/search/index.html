@@ -1,0 +1,19 @@
+{% extends "search/base.html" %}
+
+{% block body %}
+<div class="container-fluid" style="display: flex;justify-content: space-between;flex-wrap: wrap;flex-direction: row;">
+    {% for i in results %}
+    <div class="card mt-2" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{ i.restaurant.name }}</h5>
+          <p class="card-text">
+            Dish Name: {{ i.item }}<br>
+            Dish Price: {{ i.price }}<br>
+            Location: {{ i.restaurant.location }}<br>
+          </p>
+          <a href="{% url 'search:detail' i.restaurant.ID %}" class="btn btn-primary">View Restaurant Details</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
